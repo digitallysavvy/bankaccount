@@ -20,14 +20,14 @@ public class Withdrawal extends Transaction {
         makeTransaction();
     } 
 
-    public void makeTransaction() {
-       
+    public synchronized void makeTransaction() {
+
         if(account.getBalance() - amount >= 0){
             account.setBalance(account.getBalance() - amount);
         }
         else{
             System.out.println("--Withdrawal of $" + amount +" from Account#" + account.getAccountNumber() + " failed.");
-        }
+        }    
     }
 
 }

@@ -20,8 +20,8 @@ public class Deposit extends Transaction {
         makeTransaction();
     } 
      
-    public void makeTransaction(){
-        account.setBalance(account.getBalance() + depositAmount);
+    public synchronized void makeTransaction(){
+        account.setBalance(account.getBalance() + depositAmount);      
     }
     
 }

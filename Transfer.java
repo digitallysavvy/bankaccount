@@ -25,12 +25,14 @@ public final class Transfer extends Transaction {
     public void makeTransaction(){
         
         if(fromAccount.getBalance() - transferAmount >= 0){          
-           
-            Withdrawal withdrawal = new Withdrawal(fromAccount, transferAmount);
-            Deposit deposit = new Deposit(toAccount, transferAmount);
             
-            deposit.makeTransaction();
-            withdrawal.makeTransaction();
+            synchronized(fromAccount){
+                synchronized(toAccount){
+                    fromAccount.setBalance(fromAccount.getBalance() - transferAmount);
+                    toAccount.setBalance(toAccount.getBalance() + transferAmount);
+                }
+            }         
+            
         }
         
         else {
