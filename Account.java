@@ -1,7 +1,7 @@
 
 public class Account {
 
-    private int accountNumber;
+    private final int accountNumber;
     private double accountBalance;
     
     public Account(int n, double balance){
@@ -9,15 +9,15 @@ public class Account {
         accountBalance = balance;
     }
     
-    public int getAccounctNumber(){
+    public int getAccountNumber(){
         return accountNumber;
     }
     
-    public double getAccountBalance(){
+    public double getBalance(){
         return accountBalance;
     }
     
-    public void setAccountBalance(double balance){
+    public void setBalance(double balance){
         accountBalance = balance;
     }
     
