@@ -9,12 +9,24 @@ public class BalanceInquiry extends Transaction {
     }
 
     public void run(){
-    	System.out.println("--Getting balance of Account#" + account.getAccountNumber());
+
+        /*
+        try{
+            Thread.sleep(10000);
+        } catch (InterruptedException e) {}
+        */
+
+        transactionStartTime = System.nanoTime();
     	makeTransaction();
     }   
     
     public void makeTransaction(){
+        
+        /*
         System.out.println("Account#" + account.getAccountNumber() + " has a balance of $" + account.getBalance());
+        */
+        account.getBalance();
+        transactionEndTime = System.nanoTime();
     }
     
 }
