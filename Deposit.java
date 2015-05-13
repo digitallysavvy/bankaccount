@@ -13,7 +13,7 @@ public class Deposit extends Transaction {
     public void run(){
         
         try{
-            Thread.sleep(1000);
+            Thread.sleep(10000);
         } catch (InterruptedException e) {}
 
         System.out.println("Depositing $" + depositAmount +" into Account#" + account.getAccountNumber());
@@ -21,7 +21,7 @@ public class Deposit extends Transaction {
     } 
      
     public synchronized void makeTransaction(){
-        account.setBalance(account.getBalance() + depositAmount);      
+        account.setBalance(account.getBalance() + depositAmount); 
     }
     
 }

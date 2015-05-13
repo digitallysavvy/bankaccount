@@ -15,24 +15,25 @@ public final class Transfer extends Transaction {
     public void run(){
 
         try{
-            Thread.sleep(1000);
+            Thread.sleep(10000);
         } catch (InterruptedException e) {}
+
+        Thread.yield();
 
         System.out.println("Transferring $" + transferAmount + " from Account#" + fromAccount.getAccountNumber() + " to Account#" + toAccount.getAccountNumber());
         makeTransaction();
     } 
     
-    public void makeTransaction(){
+    public synchronized void makeTransaction(){
         
-        if(fromAccount.getBalance() - transferAmount >= 0){          
+        if(fromAccount.getBalance() - transferAmount >= 0){         
             
-            synchronized(fromAccount){
-                synchronized(toAccount){
-                    fromAccount.setBalance(fromAccount.getBalance() - transferAmount);
-                    toAccount.setBalance(toAccount.getBalance() + transferAmount);
-                }
-            }         
-            
+            try{
+                Thread.sleep(10000);
+            } catch (InterruptedException e) {}
+
+            fromAccount.setBalance(fromAccount.getBalance() - transferAmount);
+            toAccount.setBalance(toAccount.getBalance() + transferAmount);
         }
         
         else {
