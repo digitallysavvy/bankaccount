@@ -1,7 +1,7 @@
 # bankaccount
 IST 411 Bank Account Project
 A Bank Account Transaction System
- \n
+ <br/>
 Part 1a - A serial/procedural approach \n
 Part 1b - Object-Oriented version \n
 Part 2a - Non-Thread-Safe version \n
