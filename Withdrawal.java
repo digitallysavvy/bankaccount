@@ -4,12 +4,21 @@ public class Withdrawal extends Transaction {
     private Account account;
     private double amount;
 
-    public Withdrawal(int tNum, Account a, double amnt) {
-        super(tNum);
+    public Withdrawal(Account a, double amnt) {
+        super();
         account = a;
         amount = amnt;
     }
 
+    public void run(){
+
+        try{
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {}
+
+        System.out.println("Withdrawaling $" + amount +" from Account#" + account.getAccountNumber());
+        makeTransaction();
+    } 
 
     public void makeTransaction() {
        
@@ -17,7 +26,7 @@ public class Withdrawal extends Transaction {
             account.setBalance(account.getBalance() - amount);
         }
         else{
-            System.out.println("Withdrawal of $" + amount +" from Account#" + account.getAccountNumber() + " failed.");
+            System.out.println("--Withdrawal of $" + amount +" from Account#" + account.getAccountNumber() + " failed.");
         }
     }
 

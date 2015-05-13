@@ -3,13 +3,18 @@ public class AccountNumberInquiry extends Transaction{
     
     private Account account;
 
-    public AccountNumberInquiry(int tNum, Account a) {
-        super(tNum);
+    public AccountNumberInquiry(Account a) {
+        super();
         account = a;
+    }
+
+    public void run(){
+    	System.out.println("--Fetching the account number.");
+    	makeTransaction();
     }
     
     public void makeTransaction(){
-         System.out.println("The Account Number of is account is " + account.getAccountNumber());
+         System.out.println("This is Account#" + account.getAccountNumber());
     }
 
 
